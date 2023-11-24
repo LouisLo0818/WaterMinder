@@ -71,7 +71,7 @@ struct HydrationView: View {
                 Spacer()
                 
                 // NavigationLink to SecondView
-                NavigationLink(destination: SecondView()) {
+                NavigationLink(destination: SecondView(progress: progress, total: "41.3oz", remaining: "-22.7oz")) {
                     Text("Update Hydration")
                         .foregroundColor(.blue)
                         .padding()
@@ -86,7 +86,16 @@ struct HydrationView: View {
 
 struct SecondView: View {
     @State private var isFormPresented = false
-
+    @State private var progress: Double = 0.0
+    let total: String
+    let remaining: String
+    
+    init(progress: Double, total: String, remaining: String) {
+        self._progress = State(initialValue: progress)
+        self.total = total
+        self.remaining = remaining
+    }
+    
     var body: some View {
         VStack {
             Text("This is the Second View")
@@ -101,16 +110,55 @@ struct SecondView: View {
                     .frame(width: 50, height: 50)
                     .foregroundColor(.blue)
             }
+            
+            ProgressBar(progress: $progress, total: total, remaining: remaining)
         }
         .padding()
-        .sheet(isPresented: $isFormPresented){
+        .sheet(isPresented: $isFormPresented) {
             VStack {
                 PopupView()
-                    .presentationDetents([.height(550)]) // here!
+                    .presentationDetents([.height(550)])
             }
         }
     }
+    
+    private func simulateProgress() {
+        // Simulate progress update
+        withAnimation(.linear(duration: 2.0)) {
+            progress = 1.0
+        }
+    }
 }
+
+struct ProgressBar: View {
+    @Binding var progress: Double
+    let total: String
+    let remaining: String
+
+    var body: some View {
+        HStack {
+            Text(total)
+            Text("• \(Int(progress * 100))%")
+            Spacer()
+            Text("Remaining: \(Int(progress * 100))%")
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 8)
+
+        ZStack(alignment: .leading) {
+            Rectangle()
+                .frame(height: 10)
+                .opacity(0.3)
+                .foregroundColor(Color.gray)
+
+            Rectangle()
+                .frame(width: CGFloat(progress) * UIScreen.main.bounds.width, height: 10)
+                .foregroundColor(Color.blue)
+        }
+        .padding(.horizontal)
+    }
+}
+
 
 struct PopupView: View {
     @State private var inputValue: String = ""
