@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDA434052B1069D600EA0C88 /* WaterMinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */; };
+		BDA434072B1069D600EA0C88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434062B1069D600EA0C88 /* ContentView.swift */; };
+		BDA434092B1069D600EA0C88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA434082B1069D600EA0C88 /* Assets.xcassets */; };
+		BDA4340D2B1069D600EA0C88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA4340C2B1069D600EA0C88 /* Preview Assets.xcassets */; };
+		BDA434172B1069D600EA0C88 /* WaterMinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434162B1069D600EA0C88 /* WaterMinderTests.swift */; };
+		BDA434212B1069D600EA0C88 /* WaterMinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434202B1069D600EA0C88 /* WaterMinderUITests.swift */; };
+		BDA434232B1069D600EA0C88 /* WaterMinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434222B1069D600EA0C88 /* WaterMinderUITestsLaunchTests.swift */; };
+		BDA434302B106A0300EA0C88 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4342F2B106A0300EA0C88 /* HistoryView.swift */; };
+		BDA434322B108AB700EA0C88 /* HydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434312B108AB700EA0C88 /* HydrationView.swift */; };
+		BDA434352B108D0800EA0C88 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = BDA434342B108D0800EA0C88 /* SwiftUICharts */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDA434132B1069D600EA0C88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDA433F92B1069D600EA0C88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA434002B1069D600EA0C88;
+			remoteInfo = WaterMinder;
+		};
+		BDA4341D2B1069D600EA0C88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDA433F92B1069D600EA0C88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDA434002B1069D600EA0C88;
+			remoteInfo = WaterMinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BDA434012B1069D600EA0C88 /* WaterMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderApp.swift; sourceTree = "<group>"; };
+		BDA434062B1069D600EA0C88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BDA434082B1069D600EA0C88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDA4340A2B1069D600EA0C88 /* WaterMinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaterMinder.entitlements; sourceTree = "<group>"; };
+		BDA4340C2B1069D600EA0C88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDA434122B1069D600EA0C88 /* WaterMinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterMinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA434162B1069D600EA0C88 /* WaterMinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderTests.swift; sourceTree = "<group>"; };
+		BDA4341C2B1069D600EA0C88 /* WaterMinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterMinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA434202B1069D600EA0C88 /* WaterMinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderUITests.swift; sourceTree = "<group>"; };
+		BDA434222B1069D600EA0C88 /* WaterMinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BDA4342F2B106A0300EA0C88 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		BDA434312B108AB700EA0C88 /* HydrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDA433FE2B1069D600EA0C88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA434352B108D0800EA0C88 /* SwiftUICharts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA4340F2B1069D600EA0C88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA434192B1069D600EA0C88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDA433F82B1069D600EA0C88 = {
+			isa = PBXGroup;
+			children = (
+				BDA434032B1069D600EA0C88 /* WaterMinder */,
+				BDA434152B1069D600EA0C88 /* WaterMinderTests */,
+				BDA4341F2B1069D600EA0C88 /* WaterMinderUITests */,
+				BDA434022B1069D600EA0C88 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDA434022B1069D600EA0C88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDA434012B1069D600EA0C88 /* WaterMinder.app */,
+				BDA434122B1069D600EA0C88 /* WaterMinderTests.xctest */,
+				BDA4341C2B1069D600EA0C88 /* WaterMinderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDA434032B1069D600EA0C88 /* WaterMinder */ = {
+			isa = PBXGroup;
+			children = (
+				BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */,
+				BDA434062B1069D600EA0C88 /* ContentView.swift */,
+				BDA434082B1069D600EA0C88 /* Assets.xcassets */,
+				BDA4340A2B1069D600EA0C88 /* WaterMinder.entitlements */,
+				BDA4340B2B1069D600EA0C88 /* Preview Content */,
+				BDA4342F2B106A0300EA0C88 /* HistoryView.swift */,
+				BDA434312B108AB700EA0C88 /* HydrationView.swift */,
+			);
+			path = WaterMinder;
+			sourceTree = "<group>";
+		};
+		BDA4340B2B1069D600EA0C88 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BDA4340C2B1069D600EA0C88 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDA434152B1069D600EA0C88 /* WaterMinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDA434162B1069D600EA0C88 /* WaterMinderTests.swift */,
+			);
+			path = WaterMinderTests;
+			sourceTree = "<group>";
+		};
+		BDA4341F2B1069D600EA0C88 /* WaterMinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDA434202B1069D600EA0C88 /* WaterMinderUITests.swift */,
+				BDA434222B1069D600EA0C88 /* WaterMinderUITestsLaunchTests.swift */,
+			);
+			path = WaterMinderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDA434002B1069D600EA0C88 /* WaterMinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA434262B1069D600EA0C88 /* Build configuration list for PBXNativeTarget "WaterMinder" */;
+			buildPhases = (
+				BDA433FD2B1069D600EA0C88 /* Sources */,
+				BDA433FE2B1069D600EA0C88 /* Frameworks */,
+				BDA433FF2B1069D600EA0C88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaterMinder;
+			packageProductDependencies = (
+				BDA434342B108D0800EA0C88 /* SwiftUICharts */,
+			);
+			productName = WaterMinder;
+			productReference = BDA434012B1069D600EA0C88 /* WaterMinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDA434112B1069D600EA0C88 /* WaterMinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA434292B1069D600EA0C88 /* Build configuration list for PBXNativeTarget "WaterMinderTests" */;
+			buildPhases = (
+				BDA4340E2B1069D600EA0C88 /* Sources */,
+				BDA4340F2B1069D600EA0C88 /* Frameworks */,
+				BDA434102B1069D600EA0C88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDA434142B1069D600EA0C88 /* PBXTargetDependency */,
+			);
+			name = WaterMinderTests;
+			productName = WaterMinderTests;
+			productReference = BDA434122B1069D600EA0C88 /* WaterMinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDA4341B2B1069D600EA0C88 /* WaterMinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDA4342C2B1069D600EA0C88 /* Build configuration list for PBXNativeTarget "WaterMinderUITests" */;
+			buildPhases = (
+				BDA434182B1069D600EA0C88 /* Sources */,
+				BDA434192B1069D600EA0C88 /* Frameworks */,
+				BDA4341A2B1069D600EA0C88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDA4341E2B1069D600EA0C88 /* PBXTargetDependency */,
+			);
+			name = WaterMinderUITests;
+			productName = WaterMinderUITests;
+			productReference = BDA4341C2B1069D600EA0C88 /* WaterMinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDA433F92B1069D600EA0C88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BDA434002B1069D600EA0C88 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					BDA434112B1069D600EA0C88 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = BDA434002B1069D600EA0C88;
+					};
+					BDA4341B2B1069D600EA0C88 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = BDA434002B1069D600EA0C88;
+					};
+				};
+			};
+			buildConfigurationList = BDA433FC2B1069D600EA0C88 /* Build configuration list for PBXProject "WaterMinder" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDA433F82B1069D600EA0C88;
+			packageReferences = (
+				BDA434332B108D0800EA0C88 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
+			productRefGroup = BDA434022B1069D600EA0C88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDA434002B1069D600EA0C88 /* WaterMinder */,
+				BDA434112B1069D600EA0C88 /* WaterMinderTests */,
+				BDA4341B2B1069D600EA0C88 /* WaterMinderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDA433FF2B1069D600EA0C88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA4340D2B1069D600EA0C88 /* Preview Assets.xcassets in Resources */,
+				BDA434092B1069D600EA0C88 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA434102B1069D600EA0C88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA4341A2B1069D600EA0C88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDA433FD2B1069D600EA0C88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA434072B1069D600EA0C88 /* ContentView.swift in Sources */,
+				BDA434302B106A0300EA0C88 /* HistoryView.swift in Sources */,
+				BDA434052B1069D600EA0C88 /* WaterMinderApp.swift in Sources */,
+				BDA434322B108AB700EA0C88 /* HydrationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA4340E2B1069D600EA0C88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA434172B1069D600EA0C88 /* WaterMinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDA434182B1069D600EA0C88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA434212B1069D600EA0C88 /* WaterMinderUITests.swift in Sources */,
+				BDA434232B1069D600EA0C88 /* WaterMinderUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDA434142B1069D600EA0C88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA434002B1069D600EA0C88 /* WaterMinder */;
+			targetProxy = BDA434132B1069D600EA0C88 /* PBXContainerItemProxy */;
+		};
+		BDA4341E2B1069D600EA0C88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDA434002B1069D600EA0C88 /* WaterMinder */;
+			targetProxy = BDA4341D2B1069D600EA0C88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDA434242B1069D600EA0C88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDA434252B1069D600EA0C88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BDA434272B1069D600EA0C88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WaterMinder/WaterMinder.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WaterMinder/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDA434282B1069D600EA0C88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WaterMinder/WaterMinder.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WaterMinder/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BDA4342A2B1069D600EA0C88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaterMinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WaterMinder";
+			};
+			name = Debug;
+		};
+		BDA4342B2B1069D600EA0C88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaterMinder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WaterMinder";
+			};
+			name = Release;
+		};
+		BDA4342D2B1069D600EA0C88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WaterMinder;
+			};
+			name = Debug;
+		};
+		BDA4342E2B1069D600EA0C88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WaterMinder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDA433FC2B1069D600EA0C88 /* Build configuration list for PBXProject "WaterMinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA434242B1069D600EA0C88 /* Debug */,
+				BDA434252B1069D600EA0C88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA434262B1069D600EA0C88 /* Build configuration list for PBXNativeTarget "WaterMinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA434272B1069D600EA0C88 /* Debug */,
+				BDA434282B1069D600EA0C88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA434292B1069D600EA0C88 /* Build configuration list for PBXNativeTarget "WaterMinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA4342A2B1069D600EA0C88 /* Debug */,
+				BDA4342B2B1069D600EA0C88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDA4342C2B1069D600EA0C88 /* Build configuration list for PBXNativeTarget "WaterMinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDA4342D2B1069D600EA0C88 /* Debug */,
+				BDA4342E2B1069D600EA0C88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BDA434332B108D0800EA0C88 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDA434342B108D0800EA0C88 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDA434332B108D0800EA0C88 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = BDA433F92B1069D600EA0C88 /* Project object */;
+}
