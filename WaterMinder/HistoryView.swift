@@ -11,7 +11,7 @@ import SwiftUICharts
 
 struct HistoryView: View {
     @State private var selectedOption = "Day"
-    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2] 
+    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
     
     var body: some View {
         NavigationView {
@@ -26,9 +26,8 @@ struct HistoryView: View {
                 .padding()
                 Spacer()
                 
-                LineView(data: ([8,23,54,32,12,37,7,23,43]), title: "Line chart", legend: "Full screen") // legend is optional, use optional .padding()
-                
-                
+                LineView(data: ([8,23,54,32,12,37,7,23,43]), legend: "Average", style: Styles.barChartStyleNeonBlueLight).padding() // Set the legend font color to black
+                // legend is optional, use optional .padding()
 
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
