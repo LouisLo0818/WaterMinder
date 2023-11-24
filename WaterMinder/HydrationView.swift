@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HydrationView: View {
     @State private var progress: Double = 0.6
+    @State private var currentPage: Int = 0
     
     var body: some View {
         NavigationView {
@@ -68,8 +69,106 @@ struct HydrationView: View {
                 .cornerRadius(8)
                 .padding(16)
                 Spacer()
+                
+                // NavigationLink to SecondView
+                NavigationLink(destination: SecondView()) {
+                    Text("Update Hydration")
+                        .foregroundColor(.blue)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(8)
+                }
+                .padding(.bottom, 30)
             }
         }
+    }
+}
+
+struct SecondView: View {
+    @State private var isFormPresented = false
+
+    var body: some View {
+        VStack {
+            Text("This is the Second View")
+            
+            Spacer()
+            
+            Button(action: {
+                isFormPresented.toggle()
+            }) {
+                Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.blue)
+            }
+        }
+        .padding()
+        .sheet(isPresented: $isFormPresented){
+            VStack {
+                PopupView()
+                    .presentationDetents([.height(550)]) // here!
+            }
+        }
+    }
+}
+
+struct PopupView: View {
+    @State private var inputValue: String = ""
+
+    var body: some View {
+        VStack {
+            Text(inputValue)
+                .font(.title)
+                .padding()
+            
+            Spacer()
+
+            NumPad(value: $inputValue)
+                .padding()
+
+        }
+        .padding()
+    }
+}
+
+struct NumPad: View {
+    @Binding var value: String
+    @Environment(\.colorScheme) var colorScheme
+
+    let rows = [
+        ["1", "2", "3"],
+        ["4", "5", "6"],
+        ["7", "8", "9"],
+        [".", "0", "⌫"]
+    ]
+
+    var body: some View {
+        LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 15) {
+            ForEach(rows, id: \.self) { row in
+                ForEach(row, id: \.self) { button in
+                    Button(action: {
+                        if button == "⌫" {
+                            value = String(value.dropLast())
+                        } else if button != "" {
+                            value += button
+                        }
+                    }) {
+                        Text(button)
+                            .frame(width: 70, height: 10)
+                            .padding()
+                            .background(button.isNumeric ? Color.gray.opacity(0.2) : (button == "⌫" ? Color.red : Color.clear))
+                            .cornerRadius(8)
+                            .foregroundColor(button.isNumeric ? (colorScheme == .dark ? .white : .black) : (button == "⌫" ? .white : .primary))
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension String {
+    var isNumeric: Bool {
+        return Double(self) != nil
     }
 }
 

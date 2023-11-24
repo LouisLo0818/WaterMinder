@@ -10,14 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            HydrationView().tabItem{
-                Image(systemName: "chart.bar")
-                Text("Record")
-            }
-            HistoryView().tabItem{
-                Image(systemName: "waveform.path.ecg")
-                Text("Record")
-            }
+            HydrationView()
+                .tabItem {
+                    Image(systemName: "chart.bar")
+                    Text("Record")
+                }
+            
+            HistoryView()
+                .tabItem {
+                    Image(systemName: "waveform.path.ecg")
+                    Text("Record")
+                }
         }
     }
 }
