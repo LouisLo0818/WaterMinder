@@ -117,10 +117,10 @@ struct PopupView: View {
 
     var body: some View {
         VStack {
-            Text(inputValue)
+            Text(inputValue.isEmpty ? "0" : inputValue) // Show "0" as a placeholder
                 .font(.title)
                 .padding()
-            
+
             Spacer()
 
             NumPad(value: $inputValue)
@@ -148,8 +148,8 @@ struct NumPad: View {
                 ForEach(row, id: \.self) { button in
                     Button(action: {
                         if button == "⌫" {
-                            value = String(value.dropLast())
-                        } else if button != "" {
+                            value = value.isEmpty ? "" : String(value.dropLast())
+                        } else {
                             value += button
                         }
                     }) {
