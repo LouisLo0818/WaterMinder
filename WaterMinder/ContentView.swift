@@ -13,13 +13,17 @@ struct ContentView: View {
             HydrationView()
                 .tabItem {
                     Image(systemName: "chart.bar")
-                    Text("Record")
+                    Text("Hydration")
                 }
-            
             HistoryView()
                 .tabItem {
                     Image(systemName: "waveform.path.ecg")
                     Text("Record")
+                }
+            GoalView()
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Setting")
                 }
         }
     }

@@ -17,6 +17,7 @@
 		BDA434302B106A0300EA0C88 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4342F2B106A0300EA0C88 /* HistoryView.swift */; };
 		BDA434322B108AB700EA0C88 /* HydrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434312B108AB700EA0C88 /* HydrationView.swift */; };
 		BDA434352B108D0800EA0C88 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = BDA434342B108D0800EA0C88 /* SwiftUICharts */; };
+		BDA473CF2B1222830033ABE2 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA473CE2B1222830033ABE2 /* GoalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		BDA434222B1069D600EA0C88 /* WaterMinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BDA4342F2B106A0300EA0C88 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		BDA434312B108AB700EA0C88 /* HydrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrationView.swift; sourceTree = "<group>"; };
+		BDA473CE2B1222830033ABE2 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				BDA4340B2B1069D600EA0C88 /* Preview Content */,
 				BDA4342F2B106A0300EA0C88 /* HistoryView.swift */,
 				BDA434312B108AB700EA0C88 /* HydrationView.swift */,
+				BDA473CE2B1222830033ABE2 /* GoalView.swift */,
 			);
 			path = WaterMinder;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				BDA434072B1069D600EA0C88 /* ContentView.swift in Sources */,
 				BDA434302B106A0300EA0C88 /* HistoryView.swift in Sources */,
+				BDA473CF2B1222830033ABE2 /* GoalView.swift in Sources */,
 				BDA434052B1069D600EA0C88 /* WaterMinderApp.swift in Sources */,
 				BDA434322B108AB700EA0C88 /* HydrationView.swift in Sources */,
 			);
