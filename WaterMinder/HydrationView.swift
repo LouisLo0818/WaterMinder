@@ -110,6 +110,7 @@ struct SecondView: View {
                     .frame(width: 50, height: 50)
                     .foregroundColor(.blue)
             }
+            .padding(.bottom, 30)
             
             ProgressBar(progress: $progress, total: total, remaining: remaining)
         }
@@ -143,17 +144,20 @@ struct ProgressBar: View {
             Text("Remaining: \(Int(progress * 100))%")
         }
         .padding(.horizontal)
-        .padding(.bottom, 8)
 
         ZStack(alignment: .leading) {
-            Rectangle()
+            RoundedRectangle(cornerRadius: 5) // Adjust the corner radius as needed
                 .frame(height: 10)
                 .opacity(0.3)
                 .foregroundColor(Color.gray)
 
-            Rectangle()
+            RoundedRectangle(cornerRadius: 5) // Adjust the corner radius as needed
                 .frame(width: CGFloat(progress) * UIScreen.main.bounds.width, height: 10)
                 .foregroundColor(Color.blue)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5) // Adjust the corner radius as needed
+                        .stroke(Color.blue, lineWidth: 1)
+                )
         }
         .padding(.horizontal)
     }
@@ -210,6 +214,17 @@ struct NumPad: View {
                     }
                 }
             }
+        }
+        
+        Button(action: {
+            // Add button action logic here
+        }) {
+            Text("ADD")
+                .padding()
+                .frame(width: 150, height: 40)  // Set the desired width and height
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(50)
         }
     }
 }
