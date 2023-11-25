@@ -166,15 +166,25 @@ struct ProgressBar: View {
 
 struct PopupView: View {
     @State private var inputValue: String = ""
+    @State private var selectedDrink: String = "Water"
+    
+    var drinkOptions = ["Water", "Tea"]
 
     var body: some View {
         VStack {
-            Text(inputValue.isEmpty ? "0" : inputValue) // Show "0" as a placeholder
+            Text(inputValue.isEmpty ? "0" : inputValue)
                 .font(.title)
                 .padding()
 
-            Spacer()
-
+            Picker("Select Drink", selection: $selectedDrink) {
+                ForEach(drinkOptions, id: \.self) {
+                    Text($0)
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            .frame(width: 300, height: 120) // Set the desired width and height
+            .padding()
+            
             NumPad(value: $inputValue)
                 .padding()
 

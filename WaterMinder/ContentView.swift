@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             HydrationView()
                 .tabItem {
-                    Image(systemName: "chart.bar")
+                    Image(systemName: "drop.fill")
                     Text("Hydration")
                 }
             HistoryView()
