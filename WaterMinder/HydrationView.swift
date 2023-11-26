@@ -87,6 +87,8 @@ struct HydrationView: View {
 struct SecondView: View {
     @State private var isFormPresented = false
     @State private var progress: Double = 0.0
+    @Environment(\.colorScheme) var colorScheme
+    
     let total: String
     let remaining: String
     
@@ -97,11 +99,26 @@ struct SecondView: View {
     }
     
     var body: some View {
+        ZStack(alignment: .top) {
+            if colorScheme == .light {
+                Image("wa3")
+                    .resizable()
+                    .frame(width: 450, height: 500)
+                    .offset(y: -50)
+            } else {
+                Image("wa2")
+                    .resizable()
+                    .frame(width: 450, height: 500)
+                    .offset(y: -50)
+            }
+
+            Image("wa1")
+                .resizable()
+                .frame(width: 450, height: 500)
+                .offset(y: -50)
+        }
+        
         VStack {
-            Text("This is the Second View")
-            
-            Spacer()
-            
             Button(action: {
                 isFormPresented.toggle()
             }) {
@@ -110,11 +127,12 @@ struct SecondView: View {
                     .frame(width: 50, height: 50)
                     .foregroundColor(.blue)
             }
-            .padding(.bottom, 30)
-            
+            .padding(.bottom, 20)
+
             ProgressBar(progress: $progress, total: total, remaining: remaining)
         }
         .padding()
+        .offset(y: -30) // Adjust the offset to position the overlay image
         .sheet(isPresented: $isFormPresented) {
             VStack {
                 PopupView()
