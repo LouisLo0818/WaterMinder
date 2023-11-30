@@ -25,6 +25,8 @@ struct GoalView: View {
     @State private var newGoal: Int = 0
     @AppStorage("notificationTimer") var timer: Int = 20
     @AppStorage("notificationOn") var enabled: Bool = false
+    
+    @EnvironmentObject private var days: GlobalDays
 
     var body: some View {
         NavigationView {
@@ -62,19 +64,6 @@ struct GoalView: View {
                 }
                 Section {
                     HStack {
-                        Text("Drink type")
-                        Spacer()
-                        Text(type)
-                            .foregroundColor(.gray)
-                    }
-                    HStack {
-                        Text("Hydration Impact")
-                        Spacer()
-                        Text("\(Impact)")
-                            .foregroundColor(.gray)
-                    }
-                    
-                    HStack {
                         Text("Daily Goal")
                         Spacer()
                         Text("\(dailyGoal) Oz")
@@ -82,6 +71,7 @@ struct GoalView: View {
                     }
                     .onTapGesture {
                         isPopoverPresented = true
+                        newGoal = dailyGoal
                     }
                     .popover(isPresented: $isPopoverPresented, arrowEdge: .top) {
                         VStack {
@@ -93,6 +83,7 @@ struct GoalView: View {
                                 .padding()
                             Button(action: {
                                 dailyGoal = newGoal
+                                setGoal(nGoal: Double(dailyGoal))
                                 isPopoverPresented = false
                             }) {
                                 Text("Update Goal")
@@ -149,6 +140,37 @@ struct GoalView: View {
             .listStyle(InsetGroupedListStyle())
             .navigationTitle("Edit Goal")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            loadDays()
+        }
+        .onDisappear {
+            saveDays()
+        }
+    }
+    
+    func setGoal(nGoal: Double) {
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        if let todayIndex = days.days.firstIndex(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
+            days.days[todayIndex].goal = nGoal
+            
+            print(days.days[todayIndex].goal)
+            saveDays()
+        }
+    }
+    func loadDays() {
+        if let data = UserDefaults.standard.data(forKey: "days"),
+           let savedDays = try? JSONDecoder().decode([Day].self, from: data) {
+            days.days = savedDays
+        }
+    }
+    
+    func saveDays() {
+        if let encodedData = try? JSONEncoder().encode(days.days) {
+            UserDefaults.standard.set(encodedData, forKey: "days")
         }
     }
 }

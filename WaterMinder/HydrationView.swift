@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct HydrationView: View {
-    @State private var progress: Double = 0.6
-    @State private var currentPage: Int = 0
+    @EnvironmentObject private var days: GlobalDays
     
     var body: some View {
         NavigationView {
             VStack {
-                Ring(progress: progress, lineWidth: 20, processText: "64%", totalText: "41.3oz", leftoverText: "-22.7oz")
+                Ring(progress: calculatePercentage(), lineWidth: 20, processText: String(calculatePercentage()*100) + "%", totalText: (String(findTodayAmount()) + "oz"), leftoverText: ("-" + String(calculateDifference()) + "oz"))
                     .frame(width: 280, height: 280)
                     .padding(.top, 70)
                     Spacer()
@@ -25,34 +24,34 @@ struct HydrationView: View {
                         Text("Total")
                             .font(.headline)
                         Spacer()
-                        Text("490.4oz")
+                        Text(String(findTodayAmount()) + "oz")
                             .font(.headline)
                     }
                     .padding(.leading, 8)
                     
                     HStack {
-                        Text("Most Logged")
+                        Text("Date")
                             .font(.subheadline)
                         Spacer()
-                        Text("Water")
+                        Text(findTodayDate())
                             .font(.subheadline)
                     }
                     .padding(.leading, 8)
                     
-                    HStack {
-                        Text("Streak")
-                            .font(.subheadline)
-                        Spacer()
-                        Text("0 days")
-                            .font(.subheadline)
-                    }
-                    .padding(.leading, 8)
+//                    HStack {
+//                        Text("Streak")
+//                            .font(.subheadline)
+//                        Spacer()
+//                        Text("0 days")
+//                            .font(.subheadline)
+//                    }
+//                    .padding(.leading, 8)
                     
                     HStack {
                         Text("Avg. Size")
                             .font(.subheadline)
                         Spacer()
-                        Text("22.3oz")
+                        Text(String(calculateAverage()) + "oz")
                             .font(.subheadline)
                     }
                     .padding(.leading, 8)
@@ -61,7 +60,7 @@ struct HydrationView: View {
                         Text("Goal Achieved")
                             .font(.subheadline)
                         Spacer()
-                        Text("4")
+                        Text(goalAchieved())
                             .font(.subheadline)
                     }
                     .padding(.leading, 8)
@@ -71,7 +70,7 @@ struct HydrationView: View {
                 Spacer()
                 
                 // NavigationLink to SecondView
-                NavigationLink(destination: SecondView(progress: progress, total: "41.3oz", remaining: "-22.7oz")) {
+                NavigationLink(destination: SecondView(progress: calculatePercentage(), total: (String(findTodayAmount()) + "oz"), remaining: ("-" + String(calculateDifference()) + "oz"))) {
                     Text("Update Hydration")
                         .foregroundColor(.blue)
                         .padding()
@@ -80,6 +79,100 @@ struct HydrationView: View {
                 }
                 .padding(.bottom, 30)
             }
+        }
+        .onAppear {
+            loadDays()
+        }
+        .onDisappear {
+            saveDays()
+        }
+    }
+    
+    func loadDays() {
+        if let data = UserDefaults.standard.data(forKey: "days"),
+           let savedDays = try? JSONDecoder().decode([Day].self, from: data) {
+            days.days = savedDays
+        }
+    }
+    
+    func saveDays() {
+        if let encodedData = try? JSONEncoder().encode(days.days) {
+            UserDefaults.standard.set(encodedData, forKey: "days")
+        }
+    }
+    
+    func findTodayAmount() -> Double {
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        return days.days.first(where: { calendar.isDate($0.date, inSameDayAs: today) })?.amount ?? 0.0
+    }
+    
+    func findTodayGoal() -> Double {
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        return days.days.first(where: { calendar.isDate($0.date, inSameDayAs: today) })?.goal ?? 0.0
+    }
+    
+    func findTodayDate() -> String {
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        if let todayRecord = days.days.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            return dateFormatter.string(from: todayRecord.date)
+        }
+        
+        return "No record"
+    }
+    
+    func calculatePercentage() -> Double {
+        
+        guard findTodayGoal() != 0 else {
+            return 0.0 // Prevent division by zero
+        }
+        
+        let percentage = (findTodayAmount() / findTodayGoal()).rounded(toPlaces: 4)
+        return percentage
+    }
+    
+    func calculateDifference() -> Double {
+        let diff = (findTodayGoal() - findTodayAmount())
+        if (diff < 0.0) {
+            return 0.0
+        }
+        return diff
+    }
+    
+    func calculateAverage() -> Double {
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        
+        if let todayRecord = days.days.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
+            let cupAmounts = todayRecord.cups.map { $0.amount }
+            if (cupAmounts.count == 0) {
+                return 0.0
+            }
+            let totalAmount = cupAmounts.reduce(0, +)
+            let averageAmount = (totalAmount / Double(cupAmounts.count)).rounded(toPlaces: 2)
+            return averageAmount
+        }
+        
+        return 0.0
+    }
+    
+    func goalAchieved() -> String {
+        if (calculateDifference() == 0.0) {
+            return "Yes"
+        }
+        else {
+            return "No"
         }
     }
 }
@@ -109,7 +202,7 @@ struct SecondView: View {
                     VStack {
                         Color.blue.opacity(0)
                         Color.blue.opacity(0.4)
-                            .frame(height: 500 * 0.6)
+                            .frame(height: min(500 * progress, 500))
                             .offset(y: -54)
                     }
                 )
@@ -168,7 +261,7 @@ struct ProgressBar: View {
             Text(total)
             Text("• \(Int(progress * 100))%")
             Spacer()
-            Text("Remaining: \(Int(progress * 100))%")
+            Text("Remaining: \(max(Int((1 - progress) * 100), 0))%")
         }
         .padding(.horizontal)
 
@@ -212,7 +305,7 @@ struct PopupView: View {
             .frame(width: 300, height: 120) // Set the desired width and height
             .padding()
             
-            NumPad(value: $inputValue)
+            NumPad(value: $inputValue, dType: $selectedDrink)
                 .padding()
 
         }
@@ -221,8 +314,11 @@ struct PopupView: View {
 }
 
 struct NumPad: View {
+    @EnvironmentObject private var days: GlobalDays
+    
     @Binding var value: String
     @Environment(\.colorScheme) var colorScheme
+    @Binding var dType: String
 
     let rows = [
         ["1", "2", "3"],
@@ -255,6 +351,21 @@ struct NumPad: View {
         
         Button(action: {
             // Add button action logic here
+            let calendar = Calendar.current
+            let today = calendar.startOfDay(for: Date())
+            let amount = Double(value)
+            let hydrationLevel: Double = (dType == "Tea") ? 0.75 : 1.0
+            
+            if let todayIndex = days.days.firstIndex(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
+                let cup = Cup(name: dType, hydrationImpact: hydrationLevel, amount: amount ?? 0.0, time: Date.now)
+                days.days[todayIndex].cups.append(cup)
+                days.days[todayIndex].amount += (cup.amount * cup.hydrationImpact)
+                
+//                days[todayIndex].cups = []
+//                days[todayIndex].amount = 0
+                
+                print(days.days[todayIndex].amount)
+            }
         }) {
             Text("ADD")
                 .padding()
@@ -262,6 +373,27 @@ struct NumPad: View {
                 .background(Color.blue)
                 .foregroundColor(.white)
                 .cornerRadius(50)
+        }
+        .onAppear {
+            loadDays()
+        }
+        .onDisappear {
+            saveDays()
+        }
+    }
+    
+    func loadDays() {
+        if let data = UserDefaults.standard.data(forKey: "days"),
+           let savedDays = try? JSONDecoder().decode([Day].self, from: data) {
+            days.days = savedDays
+        }
+        print("Loaded")
+    }
+    
+    func saveDays() {
+        if let encodedData = try? JSONEncoder().encode(days.days) {
+            UserDefaults.standard.set(encodedData, forKey: "days")
+            print("Saved")
         }
     }
 }
