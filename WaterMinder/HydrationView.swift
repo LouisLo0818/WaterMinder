@@ -100,22 +100,31 @@ struct SecondView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
+            Image("panda")
+                .resizable()
+                .frame(width: 450, height: 500)
+                .offset(y: -50)
+            // overlay blue color
+                .overlay(
+                    VStack {
+                        Color.blue.opacity(0)
+                        Color.blue.opacity(0.4)
+                            .frame(height: 500 * 0.6)
+                            .offset(y: -54)
+                    }
+                )
+            
             if colorScheme == .light {
-                Image("wa3")
+                Image("white")
                     .resizable()
                     .frame(width: 450, height: 500)
                     .offset(y: -50)
             } else {
-                Image("wa2")
+                Image("back")
                     .resizable()
                     .frame(width: 450, height: 500)
                     .offset(y: -50)
             }
-
-            Image("wa1")
-                .resizable()
-                .frame(width: 450, height: 500)
-                .offset(y: -50)
         }
         
         VStack {
