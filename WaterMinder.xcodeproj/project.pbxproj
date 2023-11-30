@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47E5A6AF2B1945F100B834E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDA434012B1069D600EA0C88 /* WaterMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderApp.swift; sourceTree = "<group>"; };
 		BDA434062B1069D600EA0C88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		BDA434032B1069D600EA0C88 /* WaterMinder */ = {
 			isa = PBXGroup;
 			children = (
+				47E5A6AF2B1945F100B834E3 /* Info.plist */,
 				BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */,
 				BDA434062B1069D600EA0C88 /* ContentView.swift */,
 				BDA434082B1069D600EA0C88 /* Assets.xcassets */,
@@ -437,6 +439,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WaterMinder/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterMinder/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -473,6 +476,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"WaterMinder/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaterMinder/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

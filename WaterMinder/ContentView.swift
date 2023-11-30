@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     @StateObject public var days = GlobalDays()
     @AppStorage("dailyGoal") var dailyGoal: Int = 125
+    @AppStorage("notificationTimer") var timer: Int = 20
+    @AppStorage("notificationOn") var enabled: Bool = true
     
     var body: some View {
         TabView {
@@ -61,6 +64,35 @@ struct ContentView: View {
         }
         
         saveDays()
+    }
+    
+    public func scheduleNotification() {
+        if (enabled == false) {
+            return
+        }
+        
+        print(timer*60)
+        let timeInterval = TimeInterval(timer*60)
+            // Call the scheduleNotification function with the retrieved timeInterval
+        scheduleNotification(after: timeInterval)
+        }
+    
+    func scheduleNotification(after timeInterval: TimeInterval) {
+        let content = UNMutableNotificationContent()
+        content.title = "WaterMinder"
+        content.body = "It's time to drink water!"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: enabled)
+        let request = UNNotificationRequest(identifier: "ReminderNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled successfully.")
+            }
+        }
     }
 }
 

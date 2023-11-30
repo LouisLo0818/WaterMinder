@@ -284,7 +284,6 @@ struct HistoryView: View {
         let today = calendar.startOfDay(for: Date())
         
         if let day = days.days.first(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
-            print(day.cups)
             return day.cups.map { $0.amount * $0.hydrationImpact }
         }
         

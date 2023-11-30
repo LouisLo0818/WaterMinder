@@ -13,7 +13,7 @@ struct HydrationView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Ring(progress: calculatePercentage(), lineWidth: 20, processText: String(calculatePercentage()*100) + "%", totalText: (String(findTodayAmount()) + "oz"), leftoverText: ("-" + String(calculateDifference()) + "oz"))
+                Ring(progress: calculatePercentage(), lineWidth: 20, processText: String(format: "%.2f", (calculatePercentage()*100)) + "%", totalText: (String(findTodayAmount()) + "oz"), leftoverText: ("-" + String(calculateDifference()) + "oz"))
                     .frame(width: 280, height: 280)
                     .padding(.top, 70)
                     Spacer()
@@ -364,7 +364,6 @@ struct NumPad: View {
 //                days[todayIndex].cups = []
 //                days[todayIndex].amount = 0
                 
-                print(days.days[todayIndex].amount)
             }
         }) {
             Text("ADD")

@@ -24,7 +24,7 @@ struct GoalView: View {
     @AppStorage("dailyGoal") var dailyGoal: Int = 125
     @State private var newGoal: Int = 0
     @AppStorage("notificationTimer") var timer: Int = 20
-    @AppStorage("notificationOn") var enabled: Bool = false
+    @AppStorage("notificationOn") var enabled: Bool = true
     
     @EnvironmentObject private var days: GlobalDays
 
@@ -124,7 +124,10 @@ struct GoalView: View {
                                 .padding()
                                 Button(action: {
                                     timer = timerOptions[selectedTimerIndex]
+                                    
+                                    print(timer)
                                     isTPopoverPresented = false
+                                    ContentView().scheduleNotification()
                                 }) {
                                     Text("Done")
                                         .padding()
@@ -156,8 +159,7 @@ struct GoalView: View {
         
         if let todayIndex = days.days.firstIndex(where: { calendar.isDate($0.date, inSameDayAs: today) }) {
             days.days[todayIndex].goal = nGoal
-            
-            print(days.days[todayIndex].goal)
+
             saveDays()
         }
     }
