@@ -199,7 +199,7 @@ struct PopupView: View {
 
     var body: some View {
         VStack {
-            Text(inputValue.isEmpty ? "0" : inputValue)
+            Text(inputValue.isEmpty ? "0" : inputValue + " Oz")
                 .font(.title)
                 .padding()
 

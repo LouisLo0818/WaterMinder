@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct GoalView: View {
-    @State private var cupName: String = "Water"
+    @AppStorage("username") var cupName: String = "User"
+    @State private var isNamePopoverPresented = false
+    @State private var newName: String = ""
+    
     @State private var type: String = "Water"
     @State private var Impact: Int = 1
-    @State private var amount: Int = 14
-    @State private var timer: Int = 15
-    @State private var isNotificationEnabled: Bool = true
-    @State private var isTimerEnabled: Bool = false
+    
+    @State private var isPopoverPresented = false
+    @State private var isTPopoverPresented = false
+    
+    @State private var selectedTimerIndex = (20 / 5) - 1
+    @State private var timerOptions = Array(stride(from: 5, through: 60, by: 5))
+    
+    @AppStorage("dailyGoal") var dailyGoal: Int = 125
+    @State private var newGoal: Int = 0
+    @AppStorage("notificationTimer") var timer: Int = 20
+    @AppStorage("notificationOn") var enabled: Bool = false
 
     var body: some View {
         NavigationView {
@@ -26,6 +36,29 @@ struct GoalView: View {
                         Text(cupName)
                             .foregroundColor(.gray)
                     }
+                    .onTapGesture {
+                            isNamePopoverPresented = true
+                        }
+                        .popover(isPresented: $isNamePopoverPresented, arrowEdge: .top) {
+                            VStack {
+                                Text("Change Name")
+                                    .font(.headline)
+                                TextField("Enter new name", text: $newName)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding()
+                                Button(action: {
+                                    cupName = newName
+                                    isNamePopoverPresented = false
+                                }) {
+                                    Text("Update Name")
+                                        .padding()
+                                        .background(Color.blue)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
+                                }
+                            }
+                            .padding()
+                        }
                 }
                 Section {
                     HStack {
@@ -40,38 +73,82 @@ struct GoalView: View {
                         Text("\(Impact)")
                             .foregroundColor(.gray)
                     }
+                    
                     HStack {
-                        Text("Drink Amount")
+                        Text("Daily Goal")
                         Spacer()
-                        Text("\(amount)oz")
+                        Text("\(dailyGoal) Oz")
                             .foregroundColor(.gray)
                     }
+                    .onTapGesture {
+                        isPopoverPresented = true
+                    }
+                    .popover(isPresented: $isPopoverPresented, arrowEdge: .top) {
+                        VStack {
+                            Text("New Goal")
+                                .font(.headline)
+                            TextField("Enter new goal", value: $newGoal, format: .number)
+                                .keyboardType(.numberPad)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding()
+                            Button(action: {
+                                dailyGoal = newGoal
+                                isPopoverPresented = false
+                            }) {
+                                Text("Update Goal")
+                                    .padding()
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                        }
+                        .padding()
+                    }
                 }
+                
                 Section {
-                    Text("Icon")
-                    Text("Color")
-                }
-                Section() {
-                    Toggle("Enable Notification", isOn: $isNotificationEnabled)
+                    Toggle("Enable Notification", isOn: $enabled)
                     HStack {
                         Text("Timer")
-                            .foregroundColor(isNotificationEnabled ? .primary : .gray)
-                            .disabled(!isNotificationEnabled)
+                            .foregroundColor(enabled ? .primary : .gray)
+                            .disabled(!enabled)
                         Spacer()
-                        Text("\(timer)mins")
+                        Text("\(timer) mins")
                             .foregroundColor(.gray)
                     }
+                    .onTapGesture {
+                            isTPopoverPresented = true
+                        }
+                        .popover(isPresented: $isTPopoverPresented, arrowEdge: .top) {
+                            VStack {
+                                Text("Select Timer")
+                                    .font(.headline)
+                                Picker("Timer", selection: $selectedTimerIndex) {
+                                    ForEach(0..<timerOptions.count) { index in
+                                        Text("\(timerOptions[index]) mins")
+                                    }
+                                }
+                                .pickerStyle(WheelPickerStyle())
+                                .frame(height: 150)
+                                .padding()
+                                Button(action: {
+                                    timer = timerOptions[selectedTimerIndex]
+                                    isTPopoverPresented = false
+                                }) {
+                                    Text("Done")
+                                        .padding()
+                                        .background(Color.blue)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
+                                }
+                            }
+                            .padding()
+                        }
                 }
             }
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Edit Cup")
+            .navigationTitle("Edit Goal")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: Button(action: {
-                // Add save button action logic here
-            }) {
-                Text("Save")
-                    .foregroundColor(.blue)
-            })
         }
     }
 }

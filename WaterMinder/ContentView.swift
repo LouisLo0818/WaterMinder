@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("dayList") var dayListData: Data = Data()
     @AppStorage("cupList") var cupListData: Data = Data()
+    @AppStorage("dailyGoal") var dailyGoal: Int = 125
+    @AppStorage("notificationTimer") var timer: Int = 20
     
     var dayList: [Day] {
         get {
