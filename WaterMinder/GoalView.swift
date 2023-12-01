@@ -19,7 +19,7 @@ struct GoalView: View {
     @State private var isTPopoverPresented = false
     
     @State private var selectedTimerIndex = (20 / 5) - 1
-    @State private var timerOptions = Array(stride(from: 5, through: 60, by: 5))
+    @State private var timerOptions = Array(stride(from: 1, through: 60, by: 5))
     
     @AppStorage("dailyGoal") var dailyGoal: Int = 125
     @State private var newGoal: Int = 0
@@ -129,6 +129,7 @@ struct GoalView: View {
                                     
                                     print(timer)
                                     isTPopoverPresented = false
+                                    yourVC.requestNotificationAuthorization()
                                     yourVC.scheduleNotification()
                                 }) {
                                     Text("Done")

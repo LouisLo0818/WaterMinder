@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		476EE6582B19A2F500CBDF2A /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476EE6572B19A2F500CBDF2A /* Delegate.swift */; };
 		BDA434052B1069D600EA0C88 /* WaterMinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */; };
 		BDA434072B1069D600EA0C88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA434062B1069D600EA0C88 /* ContentView.swift */; };
 		BDA434092B1069D600EA0C88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA434082B1069D600EA0C88 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		476EE6572B19A2F500CBDF2A /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		47E5A6AF2B1945F100B834E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BDA434012B1069D600EA0C88 /* WaterMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA434042B1069D600EA0C88 /* WaterMinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterMinderApp.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				BDA4342F2B106A0300EA0C88 /* HistoryView.swift */,
 				BDA434312B108AB700EA0C88 /* HydrationView.swift */,
 				BDA473CE2B1222830033ABE2 /* GoalView.swift */,
+				476EE6572B19A2F500CBDF2A /* Delegate.swift */,
 			);
 			path = WaterMinder;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				476EE6582B19A2F500CBDF2A /* Delegate.swift in Sources */,
 				BDA434072B1069D600EA0C88 /* ContentView.swift in Sources */,
 				BDA434302B106A0300EA0C88 /* HistoryView.swift in Sources */,
 				BDA473CF2B1222830033ABE2 /* GoalView.swift in Sources */,
@@ -434,10 +438,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WaterMinder/WaterMinder.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WaterMinder/Preview Content\"";
+				DEVELOPMENT_TEAM = 8CM7X75638;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterMinder/Info.plist;
@@ -456,7 +461,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinder;
+				PRODUCT_BUNDLE_IDENTIFIER = hkbu.edu.hk.comp.WaterMinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -472,10 +477,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WaterMinder/WaterMinder.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WaterMinder/Preview Content\"";
+				DEVELOPMENT_TEAM = 8CM7X75638;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WaterMinder/Info.plist;
@@ -494,7 +500,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hk.edu.hkbu.comp.WaterMinder;
+				PRODUCT_BUNDLE_IDENTIFIER = hkbu.edu.hk.comp.WaterMinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

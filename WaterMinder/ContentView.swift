@@ -115,7 +115,7 @@ class YourViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     func requestNotificationAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
             if granted {
                 print("Notification authorization granted.")
             } else {
@@ -139,14 +139,15 @@ class YourViewController: UIViewController, UNUserNotificationCenterDelegate {
         content.body = "It's time to drink water!"
         content.sound = UNNotificationSound.default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        let request = UNNotificationRequest(identifier: "ReminderNotification", content: content, trigger: trigger)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: enabled)
+        let request = UNNotificationRequest(identifier: "hkbu.edu.hk.comp.WaterMinder", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("Error scheduling notification: \(error.localizedDescription)")
             } else {
                 print("Notification scheduled successfully.")
+                
             }
         }
     }
@@ -154,49 +155,6 @@ class YourViewController: UIViewController, UNUserNotificationCenterDelegate {
     // Handle notification presentation when the app is in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Customize the presentation options as needed
-        completionHandler([.alert, .sound])
-    }
-}
-
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().delegate = self
-        registerForRemoteNotifications()
-        
-        return true
-    }
-    
-    func registerForRemoteNotifications() {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            if granted {
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            } else {
-                print("Notification authorization denied.")
-            }
-        }
-    }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let deviceTokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        print("Device Token: \(deviceTokenString)")
-        
-        // Handle device token registration
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register for remote notifications: \(error.localizedDescription)")
-        
-        // Handle failure to register for remote notifications
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // Handle notification response
-        
-        completionHandler()
+        completionHandler([.badge, .alert, .sound])
     }
 }
