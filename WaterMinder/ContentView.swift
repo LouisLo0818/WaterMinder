@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import UIKit
 import UserNotifications
 
 struct ContentView: View {
     @StateObject public var days = GlobalDays()
     @AppStorage("dailyGoal") var dailyGoal: Int = 125
-    @AppStorage("notificationTimer") var timer: Int = 20
     @AppStorage("notificationOn") var enabled: Bool = true
+    @AppStorage("notificationPermision") var permit: Bool = false
     
     var body: some View {
         TabView {
@@ -65,35 +66,6 @@ struct ContentView: View {
         
         saveDays()
     }
-    
-    public func scheduleNotification() {
-        if (enabled == false) {
-            return
-        }
-        
-        print(timer*60)
-        let timeInterval = TimeInterval(timer*60)
-            // Call the scheduleNotification function with the retrieved timeInterval
-        scheduleNotification(after: timeInterval)
-        }
-    
-    func scheduleNotification(after timeInterval: TimeInterval) {
-        let content = UNMutableNotificationContent()
-        content.title = "WaterMinder"
-        content.body = "It's time to drink water!"
-        content.sound = UNNotificationSound.default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: enabled)
-        let request = UNNotificationRequest(identifier: "ReminderNotification", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error scheduling notification: \(error.localizedDescription)")
-            } else {
-                print("Notification scheduled successfully.")
-            }
-        }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -128,5 +100,103 @@ extension Double {
     func rounded(toPlaces places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
+    }
+}
+
+class YourViewController: UIViewController, UNUserNotificationCenterDelegate {
+    var enabled: Bool = true
+    @AppStorage("notificationTimer") var timer: Int = 20
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().delegate = self
+        requestNotificationAuthorization()
+    }
+    
+    func requestNotificationAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                print("Notification authorization granted.")
+            } else {
+                print("Notification authorization denied.")
+            }
+        }
+    }
+    
+    public func scheduleNotification() {
+        if !enabled {
+            return
+        }
+        
+        let timeInterval = TimeInterval(60)
+        scheduleNotification(after: timeInterval)
+    }
+    
+    func scheduleNotification(after timeInterval: TimeInterval) {
+        let content = UNMutableNotificationContent()
+        content.title = "WaterMinder"
+        content.body = "It's time to drink water!"
+        content.sound = UNNotificationSound.default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        let request = UNNotificationRequest(identifier: "ReminderNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled successfully.")
+            }
+        }
+    }
+    
+    // Handle notification presentation when the app is in the foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Customize the presentation options as needed
+        completionHandler([.alert, .sound])
+    }
+}
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        registerForRemoteNotifications()
+        
+        return true
+    }
+    
+    func registerForRemoteNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            } else {
+                print("Notification authorization denied.")
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("Device Token: \(deviceTokenString)")
+        
+        // Handle device token registration
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for remote notifications: \(error.localizedDescription)")
+        
+        // Handle failure to register for remote notifications
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // Handle notification response
+        
+        completionHandler()
     }
 }

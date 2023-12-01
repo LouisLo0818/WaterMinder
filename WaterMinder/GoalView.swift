@@ -28,6 +28,8 @@ struct GoalView: View {
     
     @EnvironmentObject private var days: GlobalDays
 
+    let yourVC = YourViewController()
+    
     var body: some View {
         NavigationView {
             List {
@@ -127,7 +129,7 @@ struct GoalView: View {
                                     
                                     print(timer)
                                     isTPopoverPresented = false
-                                    ContentView().scheduleNotification()
+                                    yourVC.scheduleNotification()
                                 }) {
                                     Text("Done")
                                         .padding()
